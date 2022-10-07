@@ -120,3 +120,5 @@ String literalToString(DartObject object, List<String> typeInformation) {
   );
 }
 
+Never throwUnsupported(String message) =>
+    throw InvalidGenerationSourceError('Error with `@HiveField`. $message');
