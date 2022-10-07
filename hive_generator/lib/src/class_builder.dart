@@ -11,6 +11,17 @@
       return 'return ${cls.name}();';
     }
 
+    code.writeln(';');
+
+    return code.toString();
+  }
+
+  String _value(DartType type, String variable, DartObject? defaultValue) {
+    var value = _cast(type, variable);
+    if (defaultValue?.isNull != false) return value;
+    return '$variable == null ? ${constantToString(defaultValue!)} : $value';
+  }
+
   String _cast(DartType type, String variable) {
     var suffix = _suffixFromType(type);
     if (hiveListChecker.isAssignableFromType(type)) {
