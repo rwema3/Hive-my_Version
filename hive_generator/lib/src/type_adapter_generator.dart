@@ -54,3 +54,17 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
       void write(BinaryWriter writer, ${cls.name} obj) {
         ${builder.buildWrite()}
       }
+
+      @override
+      int get hashCode => typeId.hashCode;
+
+      @override
+      bool operator ==(Object other) =>
+          identical(this, other) ||
+          other is $adapterName &&
+              runtimeType == other.runtimeType &&
+              typeId == other.typeId;
+    }
+    ''';
+  }
+
