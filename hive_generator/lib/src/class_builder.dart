@@ -11,20 +11,6 @@
       return 'return ${cls.name}();';
     }
 
-  String _cast(DartType type, String variable) {
-    var suffix = _suffixFromType(type);
-    if (hiveListChecker.isAssignableFromType(type)) {
-      return '($variable as HiveList$suffix)$suffix.castHiveList()';
-    } else if (iterableChecker.isAssignableFromType(type) &&
-        !isUint8List(type)) {
-      return '($variable as List$suffix)${_castIterable(type)}';
-    } else if (mapChecker.isAssignableFromType(type)) {
-      return '($variable as Map$suffix)${_castMap(type)}';
-    } else {
-      return '$variable as ${_displayString(type)}';
-    }
-  }
-
   bool isMapOrIterable(DartType type) {
     return iterableChecker.isAssignableFromType(type) ||
         mapChecker.isAssignableFromType(type);
