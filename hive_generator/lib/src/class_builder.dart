@@ -1,3 +1,12 @@
+    if (setChecker.isAssignableFromType(type) ||
+        iterableChecker.isAssignableFromType(type)) {
+      var suffix = _accessorSuffixFromType(type);
+      return '$accessor$suffix.toList()';
+    } else {
+      return accessor;
+    }
+  }
+}
 
 extension _FirstOrNullWhere<T> on Iterable<T> {
   T? firstOrNullWhere(bool Function(T) predicate) {
