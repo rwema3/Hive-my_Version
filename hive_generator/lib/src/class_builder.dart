@@ -10,6 +10,14 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
+      // The suffix is not needed with nnbd on $cast becauuse it short circuits,
+      // otherwise it is needed.
+      var castWithSuffix = isLibraryNNBD(cls) ? '$cast' : '$suffix$cast';
+      return '$suffix.map((dynamic e)=> ${_cast(arg, 'e')})$castWithSuffix';
+    } else {
+      return '$suffix.cast<${_displayString(arg)}>()';
+    }
+  }
 
   String _castMap(DartType type) {
     var paramType = type as ParameterizedType;
