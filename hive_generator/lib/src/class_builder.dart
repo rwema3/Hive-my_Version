@@ -1,3 +1,11 @@
+  @override
+  String buildRead() {
+    var constr = cls.constructors.firstOrNullWhere((it) => it.name.isEmpty);
+    check(constr != null, 'Provide an unnamed constructor.');
+
+    // The remaining fields to initialize.
+    var fields = setters.toList();
+
 
   String _convertIterable(DartType type, String accessor) {
     if (listChecker.isAssignableFromType(type)) {
