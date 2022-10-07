@@ -10,21 +10,6 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
-
-  String _castMap(DartType type) {
-    var paramType = type as ParameterizedType;
-    var arg1 = paramType.typeArguments[0];
-    var arg2 = paramType.typeArguments[1];
-    var suffix = _accessorSuffixFromType(type);
-    if (isMapOrIterable(arg1) || isMapOrIterable(arg2)) {
-      return '$suffix.map((dynamic k, dynamic v)=>'
-          'MapEntry(${_cast(arg1, 'k')},${_cast(arg2, 'v')}))';
-    } else {
-      return '$suffix.cast<${_displayString(arg1)}, '
-          '${_displayString(arg2)}>()';
-    }
-  }
-
   @override
   String buildWrite() {
     var code = StringBuffer();
