@@ -92,11 +92,3 @@ String literalToString(DartObject object, List<String> typeInformation) {
     final mapTypeInformation = [...typeInformation, 'Map'];
     final buffer = StringBuffer('{');
 
-    var first = true;
-
-    reader.mapValue.forEach((key, value) {
-      if (first) {
-        first = false;
-      } else {
-        buffer.writeln(',');
-      }
