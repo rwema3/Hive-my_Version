@@ -111,12 +111,3 @@ String literalToString(DartObject object, List<String> typeInformation) {
 
     return buffer.toString();
   }
-
-  badType = typeInformation.followedBy(['$object']).join(' > ');
-  throwUnsupported(
-    'The provided value is not supported: $badType. '
-    'This may be an error in package:hive_generator. '
-    'Please rerun your build with `--verbose` and file an issue.',
-  );
-}
-
