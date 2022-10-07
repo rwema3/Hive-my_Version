@@ -35,7 +35,3 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
 
     var typeId = getTypeId(annotation);
 
-    var adapterName = getAdapterName(cls.name, annotation);
-    var builder = cls.isEnum
-        ? EnumBuilder(cls, getters)
-        : ClassBuilder(cls, getters, setters);
