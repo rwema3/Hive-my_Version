@@ -80,3 +80,15 @@ String literalToString(DartObject object, List<String> typeInformation) {
     return '[$listItems]';
   }
 
+  if (reader.isSet) {
+    final setTypeInformation = [...typeInformation, 'Set'];
+    final setItems = reader.setValue
+        .map((it) => constantToString(it, setTypeInformation))
+        .join(', ');
+    return '{$setItems}';
+  }
+
+  if (reader.isMap) {
+    final mapTypeInformation = [...typeInformation, 'Map'];
+    final buffer = StringBuffer('{');
+
