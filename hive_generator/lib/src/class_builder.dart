@@ -10,20 +10,6 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
-
-  String _castIterable(DartType type) {
-    var paramType = type as ParameterizedType;
-    var arg = paramType.typeArguments.first;
-    var suffix = _accessorSuffixFromType(type);
-    if (isMapOrIterable(arg) && !isUint8List(arg)) {
-      var cast = '';
-      // Using assignable because List? is not exactly List
-      if (listChecker.isAssignableFromType(type)) {
-        cast = '.toList()';
-        // Using assignable because Set? is not exactly Set
-      } else if (setChecker.isAssignableFromType(type)) {
-        cast = '.toSet()';
-      }
       // The suffix is not needed with nnbd on $cast becauuse it short circuits,
       // otherwise it is needed.
       var castWithSuffix = isLibraryNNBD(cls) ? '$cast' : '$suffix$cast';
