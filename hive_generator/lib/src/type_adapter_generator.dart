@@ -45,12 +45,3 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
       @override
       final int typeId = $typeId;
 
-      @override
-      ${cls.name} read(BinaryReader reader) {
-        ${builder.buildRead()}
-      }
-
-      @override
-      void write(BinaryWriter writer, ${cls.name} obj) {
-        ${builder.buildWrite()}
-      }
