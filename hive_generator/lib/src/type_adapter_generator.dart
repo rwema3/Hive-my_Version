@@ -39,3 +39,9 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     var builder = cls.isEnum
         ? EnumBuilder(cls, getters)
         : ClassBuilder(cls, getters, setters);
+
+    return '''
+    class $adapterName extends TypeAdapter<${cls.name}> {
+      @override
+      final int typeId = $typeId;
+
