@@ -1,10 +1,3 @@
-
-  String _convertIterable(DartType type, String accessor) {
-    if (listChecker.isAssignableFromType(type)) {
-      return accessor;
-    } else
-    // Using assignable because Set? and Iterable? are not exactly Set and
-    // Iterable
     if (setChecker.isAssignableFromType(type) ||
         iterableChecker.isAssignableFromType(type)) {
       var suffix = _accessorSuffixFromType(type);
