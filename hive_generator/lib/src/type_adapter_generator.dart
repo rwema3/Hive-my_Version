@@ -21,10 +21,3 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
   }
 
   @override
-  Future<String> generateForAnnotatedElement(
-      Element element, ConstantReader annotation, BuildStep buildStep) async {
-    var cls = getClass(element);
-    var library = await buildStep.inputLibrary;
-    var gettersAndSetters = getAccessors(cls, library);
-
-    var getters = gettersAndSetters[0];
