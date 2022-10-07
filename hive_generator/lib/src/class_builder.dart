@@ -10,16 +10,6 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
-        code.write(_value(
-          param.type,
-          'fields[${field.index}]',
-          field.defaultValue,
-        ));
-        code.writeln(',');
-        fields.remove(field);
-      }
-    }
-
     code.writeln(')');
 
     // There may still be fields to initialize that were not in the constructor
