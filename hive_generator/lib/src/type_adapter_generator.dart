@@ -28,10 +28,3 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     var gettersAndSetters = getAccessors(cls, library);
 
     var getters = gettersAndSetters[0];
-    verifyFieldIndices(getters);
-
-    var setters = gettersAndSetters[1];
-    verifyFieldIndices(setters);
-
-    var typeId = getTypeId(annotation);
-
