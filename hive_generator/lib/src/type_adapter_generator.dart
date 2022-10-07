@@ -114,6 +114,14 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
           ));
         }
       }
+  String getAdapterName(String typeName, ConstantReader annotation) {
+    var annAdapterName = annotation.read('adapterName');
+    if (annAdapterName.isNull) {
+      return generateName(typeName);
+    } else {
+      return annAdapterName.stringValue;
+    }
+  }
 
   int getTypeId(ConstantReader annotation) {
     check(
