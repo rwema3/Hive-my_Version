@@ -100,3 +100,14 @@ String literalToString(DartObject object, List<String> typeInformation) {
       } else {
         buffer.writeln(',');
       }
+
+      buffer
+        ..write(constantToString(key, mapTypeInformation))
+        ..write(': ')
+        ..write(constantToString(value, mapTypeInformation));
+    });
+
+    buffer.write('}');
+
+    return buffer.toString();
+  }
