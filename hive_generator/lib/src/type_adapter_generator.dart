@@ -85,3 +85,11 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
           var name = accessor.name;
           accessorNames.add(name.substring(0, name.length - 1));
         } else {
+          accessorNames.add(accessor.name);
+        }
+      }
+    }
+
+    return accessorNames;
+  }
+
