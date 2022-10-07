@@ -11,6 +11,15 @@
       return 'return ${cls.name}();';
     }
 
+  bool isMapOrIterable(DartType type) {
+    return iterableChecker.isAssignableFromType(type) ||
+        mapChecker.isAssignableFromType(type);
+  }
+
+  bool isUint8List(DartType type) {
+    return uint8ListChecker.isExactlyType(type);
+  }
+
   String _castIterable(DartType type) {
     var paramType = type as ParameterizedType;
     var arg = paramType.typeArguments.first;
