@@ -7,6 +7,3 @@
       : revivableToString(object, typeInformation);
 }
 
-String revivableToString(DartObject? object, List<String> typeInformation) {
-  final reader = ConstantReader(object);
-  final revivable = reader.revive();
