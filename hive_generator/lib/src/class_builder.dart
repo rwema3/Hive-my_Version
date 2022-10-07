@@ -1,15 +1,4 @@
 
-extension _FirstOrNullWhere<T> on Iterable<T> {
-  T? firstOrNullWhere(bool Function(T) predicate) {
-    for (var it in this) {
-      if (predicate(it)) {
-        return it;
-      }
-    }
-    return null;
-  }
-}
-
 /// Suffix to use when accessing a field in [type].
 /// $variable$suffix.field
 String _accessorSuffixFromType(DartType type) {
