@@ -30,18 +30,3 @@ String revivableToString(DartObject? object, List<String> typeInformation) {
   }
 }
 
-// The code below is based on code from https://github.com/google/json_serializable.dart/blob/df60c2a95c4c0054d6ab785849937d7f5ade39fe/json_serializable/lib/src/json_key_utils.dart#L43
-
-String literalToString(DartObject object, List<String> typeInformation) {
-  final reader = ConstantReader(object);
-
-  String? badType;
-  if (reader.isSymbol) {
-    badType = 'Symbol';
-  } else if (reader.isType) {
-    badType = 'Type';
-  } else if (object.type is FunctionType) {
-    badType = 'Function';
-  } else if (!reader.isLiteral) {
-    badType = object.type!.element!.name;
-  }
