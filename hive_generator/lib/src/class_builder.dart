@@ -1,11 +1,3 @@
-
-class ClassBuilder extends Builder {
-  ClassBuilder(
-    ClassElement cls,
-    List<AdapterField> getters,
-    List<AdapterField> setters,
-  ) : super(cls, getters, setters);
-
   var hiveListChecker = const TypeChecker.fromRuntime(HiveList);
   var listChecker = const TypeChecker.fromRuntime(List);
   var mapChecker = const TypeChecker.fromRuntime(Map);
