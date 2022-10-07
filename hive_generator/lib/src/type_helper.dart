@@ -55,3 +55,20 @@ String literalToString(DartObject object, List<String> typeInformation) {
     final value = reader.literalValue;
 
     if (value is String) return escapeDartString(value);
+
+    if (value is double) {
+      if (value.isNaN) {
+        return 'double.nan';
+      }
+
+      if (value.isInfinite) {
+        if (value.isNegative) {
+          return 'double.negativeInfinity';
+        }
+        return 'double.infinity';
+      }
+    }
+
+    if (value is bool || value is num) return value.toString();
+  }
+
