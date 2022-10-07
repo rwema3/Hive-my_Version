@@ -1,12 +1,3 @@
-import 'package:analyzer/dart/constant/value.dart';
-import 'package:analyzer/dart/element/type.dart';
-import 'package:source_gen/source_gen.dart';
-import 'package:source_helper/source_helper.dart';
-
-const bool kConstConstructors = true;
-
-String constantToString(
-  DartObject? object, [
   List<String> typeInformation = const [],
 ]) {
   if (object == null || object.isNull) return 'null';
