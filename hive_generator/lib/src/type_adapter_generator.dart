@@ -97,6 +97,24 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
       ClassElement cls, LibraryElement library) {
     var accessorNames = getAllAccessorNames(cls);
 
+    var getters = <AdapterField>[];
+    var setters = <AdapterField>[];
+    for (var name in accessorNames) {
+      var getter = cls.lookUpGetter(name, library);
+      if (getter != null) {
+        var getterAnn =
+            getHiveFieldAnn(getter.variable) ?? getHiveFieldAnn(getter);
+        if (getterAnn != null) {
+          var field = getter.variable;
+          getters.add(AdapterField(
+            getterAnn.index,
+            field.name,
+            field.type,
+            getterAnn.defaultValue,
+          ));
+        }
+      }
+
   int getTypeId(ConstantReader annotation) {
     check(
       !annotation.read('typeId').isNull,
