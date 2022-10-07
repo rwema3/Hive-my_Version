@@ -93,6 +93,3 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     return accessorNames;
   }
 
-  List<List<AdapterField>> getAccessors(
-      ClassElement cls, LibraryElement library) {
-    var accessorNames = getAllAccessorNames(cls);
