@@ -72,11 +72,3 @@ String literalToString(DartObject object, List<String> typeInformation) {
     if (value is bool || value is num) return value.toString();
   }
 
-  if (reader.isList) {
-    final listTypeInformation = [...typeInformation, 'List'];
-    final listItems = reader.listValue
-        .map((it) => constantToString(it, listTypeInformation))
-        .join(', ');
-    return '[$listItems]';
-  }
-
