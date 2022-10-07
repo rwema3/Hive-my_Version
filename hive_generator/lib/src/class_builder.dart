@@ -10,18 +10,6 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
-    code.writeln(')');
-
-    // There may still be fields to initialize that were not in the constructor
-    // as initializing formals. We do so using cascades.
-    for (var field in fields) {
-      code.write('..${field.name} = ');
-      code.writeln(_value(
-        field.type,
-        'fields[${field.index}]',
-        field.defaultValue,
-      ));
-    }
 
     code.writeln(';');
 
