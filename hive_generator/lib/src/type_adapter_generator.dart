@@ -114,6 +114,28 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
           ));
         }
       }
+
+
+    return [getters, setters];
+  }
+
+  void verifyFieldIndices(List<AdapterField> fields) {
+    for (var field in fields) {
+      check(field.index >= 0 && field.index <= 255,
+          'Field numbers can only be in the range 0-255.');
+
+      for (var otherField in fields) {
+        if (otherField == field) continue;
+        if (otherField.index == field.index) {
+          throw HiveError(
+            'Duplicate field number: ${field.index}. Fields "${field.name}" '
+            'and "${otherField.name}" have the same number.',
+          );
+        }
+      }
+    }
+  }
+
   String getAdapterName(String typeName, ConstantReader annotation) {
     var annAdapterName = annotation.read('adapterName');
     if (annAdapterName.isNull) {
