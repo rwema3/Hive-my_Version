@@ -96,3 +96,12 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
   List<List<AdapterField>> getAccessors(
       ClassElement cls, LibraryElement library) {
     var accessorNames = getAllAccessorNames(cls);
+
+  int getTypeId(ConstantReader annotation) {
+    check(
+      !annotation.read('typeId').isNull,
+      'You have to provide a non-null typeId.',
+    );
+    return annotation.read('typeId').intValue;
+  }
+}
