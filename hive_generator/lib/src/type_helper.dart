@@ -45,13 +45,3 @@ String literalToString(DartObject object, List<String> typeInformation) {
   } else if (!reader.isLiteral) {
     badType = object.type!.element!.name;
   }
-
-  if (badType != null) {
-    badType = typeInformation.followedBy([badType]).join(' > ');
-    throwUnsupported('`defaultValue` is `$badType`, it must be a literal.');
-  }
-
-  if (reader.isDouble || reader.isInt || reader.isString || reader.isBool) {
-    final value = reader.literalValue;
-
-    if (value is String) return escapeDartString(value);
