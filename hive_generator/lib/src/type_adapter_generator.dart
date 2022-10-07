@@ -72,3 +72,6 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     check(element.kind == ElementKind.CLASS || element.kind == ElementKind.ENUM,
         'Only classes or enums are allowed to be annotated with @HiveType.');
 
+    return element as ClassElement;
+  }
+
