@@ -10,6 +10,16 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
+
+
+    for (var param in constr.parameters) {
+      var field = fields.firstOrNullWhere((it) => it.name == param.name);
+      // Final fields
+      field ??= getters.firstOrNullWhere((it) => it.name == param.name);
+      if (field != null) {
+        if (param.isNamed) {
+          code.write('${param.name}: ');
+        }
         code.write(_value(
           param.type,
           'fields[${field.index}]',
