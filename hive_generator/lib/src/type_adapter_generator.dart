@@ -75,3 +75,6 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     return element as ClassElement;
   }
 
+  Set<String> getAllAccessorNames(ClassElement cls) {
+    var accessorNames = <String>{};
+
