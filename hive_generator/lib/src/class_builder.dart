@@ -1,10 +1,3 @@
-  var hiveListChecker = const TypeChecker.fromRuntime(HiveList);
-  var listChecker = const TypeChecker.fromRuntime(List);
-  var mapChecker = const TypeChecker.fromRuntime(Map);
-  var setChecker = const TypeChecker.fromRuntime(Set);
-  var iterableChecker = const TypeChecker.fromRuntime(Iterable);
-  var uint8ListChecker = const TypeChecker.fromRuntime(Uint8List);
-
   @override
   String buildRead() {
     var constr = cls.constructors.firstOrNullWhere((it) => it.name.isEmpty);
