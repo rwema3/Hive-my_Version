@@ -6,6 +6,12 @@
     // The remaining fields to initialize.
     var fields = setters.toList();
 
+    // Empty classes
+    if (constr!.parameters.isEmpty && fields.isEmpty) {
+      return 'return ${cls.name}();';
+    }
+    return code.toString();
+  }
 
   String _convertIterable(DartType type, String accessor) {
     if (listChecker.isAssignableFromType(type)) {
