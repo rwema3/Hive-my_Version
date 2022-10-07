@@ -11,6 +11,15 @@
       return 'return ${cls.name}();';
     }
 
+    var code = StringBuffer();
+    code.writeln('''
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++)
+        reader.readByte(): reader.read(),
+    };
+    return ${cls.name}(
+    ''');
 
     for (var param in constr.parameters) {
       var field = fields.firstOrNullWhere((it) => it.name == param.name);
