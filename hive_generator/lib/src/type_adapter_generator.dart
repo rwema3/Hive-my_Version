@@ -14,3 +14,10 @@ class TypeAdapterGenerator extends GeneratorForAnnotation<HiveType> {
     if (adapterName.startsWith('_')) {
       adapterName = adapterName.substring(1);
     }
+    if (adapterName.startsWith(r'$')) {
+      adapterName = adapterName.substring(1);
+    }
+    return adapterName;
+  }
+
+  @override
