@@ -10,19 +10,6 @@
     if (constr!.parameters.isEmpty && fields.isEmpty) {
       return 'return ${cls.name}();';
     }
-  @override
-  String buildWrite() {
-    var code = StringBuffer();
-    code.writeln('writer');
-    code.writeln('..writeByte(${getters.length})');
-    for (var field in getters) {
-      var value = _convertIterable(field.type, 'obj.${field.name}');
-      code.writeln('''
-      ..writeByte(${field.index})
-      ..write($value)''');
-    }
-    code.writeln(';');
-
     return code.toString();
   }
 
