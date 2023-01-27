@@ -5,3 +5,4 @@ import 'package:mockito/annotations.dart';
 
 export 'mocks.mocks.dart';
 
+@GenerateMocks([], customMocks: [
