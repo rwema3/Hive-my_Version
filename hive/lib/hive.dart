@@ -30,3 +30,7 @@ export 'src/backend/stub/storage_backend_memory.dart';
 export 'src/object/hive_object.dart' show HiveObject, HiveObjectMixin;
 
 part 'src/annotations/hive_field.dart';
+
+part 'src/annotations/hive_type.dart';
+
+part 'src/binary/binary_reader.dart';
