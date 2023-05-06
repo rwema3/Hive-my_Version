@@ -52,3 +52,8 @@ part 'src/hive.dart';
 part 'src/hive_error.dart';
 
 part 'src/object/hive_collection.dart';
+
+part 'src/object/hive_list.dart';
+
+part 'src/object/hive_storage_backend_preference.dart';
+
