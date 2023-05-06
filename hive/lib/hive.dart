@@ -17,3 +17,6 @@ import 'package:hive/src/hive_impl.dart';
 import 'package:hive/src/object/hive_list_impl.dart';
 import 'package:hive/src/object/hive_object.dart';
 import 'package:hive/src/util/extensions.dart';
+import 'package:meta/meta.dart';
+
+import 'src/backend/js/web_worker/web_worker_stub.dart'
