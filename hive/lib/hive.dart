@@ -20,3 +20,7 @@ import 'package:hive/src/util/extensions.dart';
 import 'package:meta/meta.dart';
 
 import 'src/backend/js/web_worker/web_worker_stub.dart'
+    if (dart.library.html) 'src/backend/js/web_worker/web_worker.dart';
+
+export 'package:hive/src/box_collection/box_collection.dart';
+
