@@ -46,3 +46,9 @@ part 'src/box/lazy_box.dart';
 part 'src/crypto/hive_aes_cipher.dart';
 
 part 'src/crypto/hive_cipher.dart';
+
+part 'src/hive.dart';
+
+part 'src/hive_error.dart';
+
+part 'src/object/hive_collection.dart';
