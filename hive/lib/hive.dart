@@ -24,3 +24,6 @@ import 'src/backend/js/web_worker/web_worker_stub.dart'
 
 export 'package:hive/src/box_collection/box_collection.dart';
 
+export 'src/backend/js/web_worker/web_worker_stub.dart'
+    if (dart.library.html) 'src/backend/js/web_worker/web_worker.dart';
+export 'src/backend/stub/storage_backend_memory.dart';
