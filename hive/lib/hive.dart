@@ -14,3 +14,6 @@ import 'package:hive/src/box/default_key_comparator.dart';
 import 'package:hive/src/crypto/aes_cbc_pkcs7.dart';
 import 'package:hive/src/crypto/crc32.dart';
 import 'package:hive/src/hive_impl.dart';
+import 'package:hive/src/object/hive_list_impl.dart';
+import 'package:hive/src/object/hive_object.dart';
+import 'package:hive/src/util/extensions.dart';
