@@ -60,3 +60,7 @@ part 'src/object/hive_storage_backend_preference.dart';
 part 'src/registry/type_adapter.dart';
 
 part 'src/registry/type_registry.dart';
+
+/// Global constant to access Hive.
+// ignore: non_constant_identifier_names
+final HiveInterface Hive = HiveImpl();
