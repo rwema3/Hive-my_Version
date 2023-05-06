@@ -5,3 +5,5 @@ import 'package:mockito/annotations.dart';
 
 export 'mocks.mocks.dart';
 
+@GenerateMocks([], customMocks: [
+  MockSpec<BinaryReader>(returnNullOnMissingStub: true),
