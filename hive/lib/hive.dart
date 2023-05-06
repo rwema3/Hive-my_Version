@@ -8,3 +8,6 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
+import 'package:hive/src/backend/storage_backend.dart';
+import 'package:hive/src/box/default_compaction_strategy.dart';
+import 'package:hive/src/box/default_key_comparator.dart';
